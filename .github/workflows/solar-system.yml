@@ -1,6 +1,6 @@
 name: Solar System Workflow
 
-on: 
+on:
   workflow_dispatch:
   push:
     branches:
@@ -29,7 +29,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.npm
-          key: '${{ runner.os }}-node-modules-${{ hashFiles("package-lock.json") }}'
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('package-lock.json') }}
 
       - name: Install Dependencies
         run: npm install
