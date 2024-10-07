@@ -7,10 +7,10 @@ on:
       - main
       - 'feature/*'
 
-# env:
-#   MONGO_URI: mongodb+srv://supercluster.d83jj.mongodb.net/superData
-#   MONGO_USERNAME: superuser
-#   MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD }}
+env:
+  MONGO_URI: mongodb+srv://supercluster.d83jj.mongodb.net/superData
+  MONGO_USERNAME: superuser
+  MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD }}
 
 jobs:
   unit-testing:
@@ -25,11 +25,11 @@ jobs:
         with:
           node-version: 20
 
-      # - name: Cache NPM Dependencies
-      #   uses: actions/cache@v3
-      #   with:
-      #     path: ~/.npm
-      #     key: ${{ runner.os }}-node-modules-${{ hashFiles('package-lock.json') }}
+      - name: Cache NPM Dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{runner.os}}-node-modules-${{hashFiles(''package-lock.json'') }}
 
       - name: Install Dependencies
         run: npm install
